@@ -22,16 +22,72 @@ def list_json():
     return {"characters": dict["results"]}
 
 
-@app.route("/characters")
-def list_characters():
+@app.route("/characters/page/<number_page>")
+def list_characters_page(number_page):
     # Implementação para listar personagens
 
-    url = "https://rickandmortyapi.com/api/character"
+    global page
+    page = number_page
+
+    url = "https://rickandmortyapi.com/api/character?page=" + number_page
+
     response = urllib.request.urlopen(url)
     characters = response.read()
     dict = json.loads(characters)
 
-    return render_template("characters.html", characters=dict["results"])
+    return render_template("characters.html", characters=dict["results"], page=page)
+
+
+@app.route("/characters/nextpage")
+def list_characters_next_page():
+    # Implementação para listar personagens
+
+    global page
+    page = page + 1
+
+    print(f"Page={page}")
+
+    url = f"https://rickandmortyapi.com/api/character?page={page}"
+
+    print(url)
+
+    response = urllib.request.urlopen(url)
+    characters = response.read()
+    dict = json.loads(characters)
+
+    return render_template("characters.html", characters=dict["results"], page=page)
+
+
+@app.route("/characters/previouspage")
+def list_characters_previous_page():
+    # Implementação para listar personagens
+
+    global page
+    page -= 1
+
+    url = f"https://rickandmortyapi.com/api/character?page={page}"
+
+    response = urllib.request.urlopen(url)
+    characters = response.read()
+    dict = json.loads(characters)
+
+    return render_template("characters.html", characters=dict["results"], page=page)
+
+
+@app.route("/characters")
+def list_characters():
+    # Implementação para listar personagens
+
+    global page
+    page = 1
+
+    url = "https://rickandmortyapi.com/api/character"
+
+    response = urllib.request.urlopen(url)
+    characters = response.read()
+    dict = json.loads(characters)
+
+    return render_template("characters.html", characters=dict["results"], page=page)
 
 
 # Endpoint para exibir perfil do personagem
@@ -44,7 +100,20 @@ def character_profile(id):
     data = response.read()
     dict = json.loads(data)
 
-    return render_template("profile.html", profile=dict)
+    episodes = []
+
+    for url_episode in dict["episode"]:
+        response = urllib.request.urlopen(url_episode)
+        data = response.read()
+        dict_episode = json.loads(data)
+        episode = {
+            "id": dict_episode["id"],
+            "name": dict_episode["name"],
+            "episode": dict_episode["episode"],
+        }
+        episodes.append(episode)
+
+    return render_template("character.html", profile=dict, episodes=episodes)
 
 
 # Endpoint para listar localizações
