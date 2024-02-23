@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="row mx-auto">
+    <h1>Episode: <span class="text-secondary">{{ episode.name }}</span></h1>
+    
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div>
+            <p class="card-text"><b>Date of Release: </b>{{ episode.air_date }}</p>
+            <p class="card-text"><b>Episode Code: </b>{{ episode.episode }}</p>
+            <p class="card-text"><b>Characters:</b></p>
+
+            <ul class="card-text">
+            {% for character in characters %}
+
+              
+                <li><a href="/character/{{ character.id }}">{{ character.name }}</a></li>
+            {% endfor %}
+           
+          </ul>
+          
+        </div>
+    </div>
+</div>
+
+{% endblock %}
