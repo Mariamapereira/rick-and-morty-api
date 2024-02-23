@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+
+    <h1>Characters</h1>
+
+    {% for character in characters %}
+        <div class="col-sm-3 col-6">
+
+            <a href="/character/{{character.id}}" >
+                <img src="{{character.image}}" alt="{{character.name}}"
+                class="img-fluid img-thumbnail"/>
+
+                <h3 class="h5 mx-auto">{{character.name}}</h3>
+            </a>
+
+        </div>
+    {% endfor %}
+
+    <!-- <button type="button" class="btn btn-primary btn-info" href="/character/page/">
+        Próxima Página
+    </button> -->
+
+    <nav aria-label="Navegação de página exemplo m-2">
+        <ul class="pagination justify-content-center ">
+          <li class="page-item">
+            <a class="page-link" href="/characters/previouspage" tabindex="-1">Anterior</a>
+          </li>
+          <!-- <li class="page-item"><a class="page-link" href="/characters/page/1">{{page-1}}</a></li>
+          <li class="page-item"><a class="page-link" href="/characters/page/2">{{page}}</a></li>
+          <li class="page-item"><a class="page-link" href="/characters/page/3">{{page+1}}</a></li> -->
+          <li class="page-item">
+            <a class="page-link" href="/characters/nextpage">Próximo</a>
+          </li>
+        </ul>
+      </nav>
+
+
+
+</div>
+{% endblock %}
+            
