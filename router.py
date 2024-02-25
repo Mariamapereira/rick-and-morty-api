@@ -170,11 +170,28 @@ def location_profile(id):
 #     # return render_template("templates\episodes.html", episodes=episodes)
 
 
-# # Endpoint para exibir perfil do episódio
-# @app.route("/episode/<int:id>")
-# def episode_profile(id):
-#     # Implementação para exibir perfil do episódio
-#     # return render_template("templates\episode.html", episode=episode)
+# Endpoint para exibir perfil do episódio
+@app.route("/episode/<id>")
+def episode_profile(id):
+    # Implementação para exibir perfil do episódio
+    url = "https://rickandmortyapi.com/api/episode/" + id
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    dict = json.loads(data)
+
+    characters = []
+    
+    for url_character in dict["characters"]:
+        response = urllib.request.urlopen(url_character)
+        data = response.read()
+        dict_character = json.loads(data)
+        character = {
+            "id": dict_character["id"],
+            "name": dict_character["name"]
+        }
+        characters.append(character)
+
+    return render_template("episode.html", episode=dict, characters=characters)
 
 
 # if __name__ == '__main__':
