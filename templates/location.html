@@ -10,9 +10,15 @@
             <p class="card-text">Dimensão: {{ local.dimension }}</p>
             <h5 class="card-title">Residentes:</h5>
             <ul>
-                {% for resident in local.residents %}
-                <li><a href="/profile/{{ resident.split('/')[-1] }}">{{ resident }}</a></li>                
-                {% endfor %}
+            {% for character_url in episode.characters %}
+                {% set character_id = character_url.split('/')[-1] %}
+                {% set character_info = get_character_info(character_id) %}
+                {% if character_info %}
+                    <li class="list-group-item">
+                        <a href="/profile/{{ character_id }}" class="card-link">{{ character_info.name }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
             </ul>
         </div>
     </div>
