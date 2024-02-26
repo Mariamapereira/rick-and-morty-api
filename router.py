@@ -151,6 +151,13 @@ def get_list_location_page():
 
 
 # Endpoint para exibir perfil da localização
+def get_resident_info(resident_id):
+    url = f"https://rickandmortyapi.com/api/character/{resident_id}"
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    resident_data = json.loads(data)
+    return resident_data
+
 @app.route("/location/<id>")
 def location_profile(id):
     # Implementação para exibir perfil da localização
@@ -159,7 +166,7 @@ def location_profile(id):
     data = response.read()
     local_data = json.loads(data)
 
-    return render_template("location.html", local=local_data)
+    return render_template("location.html", local=local_data, get_resident_info=get_resident_info)
    
 
 
