@@ -1,9 +1,24 @@
 # 👽 Projeto Rick & Morty Guide 👽
 
-Desenvolvimento de API, utilizando Flask, que faz o consumo da API de terceiros Rick and Morty API, e apresenta para o usuário de forma mais amigável e organizada.
+
+<br><br>Desenvolvimento de API, utilizando Flask, que faz o consumo da API de terceiros Rick and Morty API, e apresenta para o usuário de forma mais amigável e organizada.
 
 **API de terceiro utilizada:** https://rickandmortyapi.com/api/<br>
 Endpoints consultadas: **/character, /location, /episode**
+
+<br><br>
+
+## ⚙️ FERRAMENTAS
+      
+<br>
+Neste projeto foram utilizadas as seguintes ferramentas:
+<br><br>
+
+| Python|Flask |Git|GitHub | 
+| :-----------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------- |
+| <img height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/> | <img height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg"/> |  <img height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/> | <img height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"/> 
+
+<br><br>
 
 
 ## ⚙️ Funcionalidades:
