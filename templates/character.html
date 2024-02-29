@@ -6,21 +6,22 @@
 
         <h1>Character: <span class="text-secondary">{{profile.name}}</span> </h1>
         
-        <div class="d-flex flex-row bd-highlight mb-3">
-            <div>
-                <img src="{{profile.image}}" alt="{{profile.name}}" class="img-fluid img-thumbnail" style="height: 400px;" />
+        <div class="row">
+            <div class="col">
+                <img src="{{profile.image}}" alt="{{profile.name}}" class=" img-fluid img-thumbnail" />
             </div>
             
-            <div class="p-2">
+            <div class="col p-2">
                 <p class="card-text"><b>Species: </b>{{profile.species}}</p>
                 <p class="card-text"><b>Gender: </b>{{profile.gender}}</p>
                 <p class="card-text"><b>Origin: </b>{{profile.origin.name}}</p>
-                <p class="card-text"><b>Location: </b>{{profile.location.name}}</p>
+                <p class="card-text"><b>Location: </b><a href="/location/{{location_index}}">{{profile.location.name}}</a></p>
                 <p class="card-text"><b>Episodes: </b></p>
+
 
                 <ul class="card-text">
                 {% for episode in episodes %}
-                        <li><a href="/episode/{{episode.id}}" >{{episode.name}} ({{episode.episode}}) </a></li>
+                    <li><a href="/episode/{{episode.id}}" >{{episode.name}} ({{episode.episode}}) </a></li>
                 {% endfor %}
                 </ul>
 

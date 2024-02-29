@@ -16,25 +16,35 @@
             </a>
 
         </div>
+
+        
     {% endfor %}
 
-    <!-- <button type="button" class="btn btn-primary btn-info" href="/character/page/">
-        Próxima Página
-    </button> -->
 
-    <nav aria-label="Navegação de página exemplo m-2">
-        <ul class="pagination justify-content-center ">
-          <li class="page-item">
-            <a class="page-link" href="/characters/previouspage" tabindex="-1">Anterior</a>
-          </li>
-          <!-- <li class="page-item"><a class="page-link" href="/characters/page/1">{{page-1}}</a></li>
-          <li class="page-item"><a class="page-link" href="/characters/page/2">{{page}}</a></li>
-          <li class="page-item"><a class="page-link" href="/characters/page/3">{{page+1}}</a></li> -->
-          <li class="page-item">
-            <a class="page-link" href="/characters/nextpage">Próximo</a>
-          </li>
-        </ul>
-      </nav>
+
+    <nav aria-label="Navegação de página">
+      <ul class="pagination justify-content-center m-5">
+        <li class="page-item">
+          <!-- {% with previouspage = page-1 %} -->
+            {% if page==1 %}
+              <a class="page-link disabled" href="#" tabindex="-1"> << </a>
+            {% else %}
+              <a class="page-link" href="/characters/page/{{previous_page}}" tabindex="-1"> << </a>
+            {% endif %}
+          <!-- {% endwith %} -->
+        </li>
+        <li class="page-item active">
+          <p class="page-link ">{{page}}</p>
+        </li>
+        <li class="page-item">
+          {% if page==42 %}
+            <a class="page-link disabled" href="#"> >> </a>
+          {% else %}
+            <a class="page-link" href="/characters/page/{{next_page}}"> >> </a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
 
 
 

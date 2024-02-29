@@ -1,26 +1,29 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
-    <h1>Detalhes da Localização</h1>
-    <div class="card">
-        <div class="card-body">
-            <h3 class="card-title">{{ local.name }}</h3>
-            <p class="card-text">Tipo: {{ local.type }}</p>
-            <p class="card-text">Dimensão: {{ local.dimension }}</p>
-            <h5 class="card-title">Residentes:</h5>
-            <ul>
-            {% for character_url in episode.characters %}
-                {% set character_id = character_url.split('/')[-1] %}
-                {% set character_info = get_character_info(character_id) %}
-                {% if character_info %}
-                    <li class="list-group-item">
-                        <a href="/profile/{{ character_id }}" class="card-link">{{ character_info.name }}</a>
-                    </li>
-                {% endif %}
+
+<div class="row mx-auto">
+
+    <h1>Location: <span class="text-secondary">{{location.name}}</span> </h1>
+    
+    <div class="row">
+        
+        <div class="col">
+            <p class="card-text"><b>Type: </b>{{location.type}}</p>
+            <p class="card-text"><b>Dimension: </b>{{location.dimension}}</p>
+            <p class="card-text"><b>Residents: </b></p>
+
+
+            <ul class="card-text">
+            {% for resident in residents %}
+                <li><a href="/character/{{resident.id}}" >{{resident.name}} </a></li>
             {% endfor %}
             </ul>
+
         </div>
+        
+        
     </div>
+
 </div>
 {% endblock %}
