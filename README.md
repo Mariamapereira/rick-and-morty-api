@@ -1,4 +1,4 @@
-# Projeto Rick & Morty Guide
+# 👽 Projeto Rick & Morty Guide 👽
 
 Desenvolvimento de API, utilizando Flask, que faz o consumo da API de terceiros Rick and Morty API, e apresenta para o usuário de forma mais amigável e organizada.
 
@@ -6,7 +6,7 @@ Desenvolvimento de API, utilizando Flask, que faz o consumo da API de terceiros 
 Endpoints consultadas: **/character, /location, /episode**
 
 
-## Funcionalidades:
+## ⚙️ Funcionalidades:
 
 
 *   Listar personagens
@@ -17,7 +17,7 @@ Endpoints consultadas: **/character, /location, /episode**
 *   Detalhes do episódio
 
 
-<br>
+<br><br>
 
 ## Organização da Squad
 
@@ -26,44 +26,62 @@ Foi criado o repositório no GitHub, ao qual foi atrelado um Project Kanban, ond
 Repositório: https://github.com/pestanafj/rick-and-morty-api/
 
 Também foram realizadas reuniões organizacionais pelo Discord, onde ficou decidido coletivamente as representantes para a apresentação
+<br><br>
 
-## Listar personagens
-
-``/characters``
+### Listar personagens
+Rota: ``/characters``
 
 Retorna página apresentando cards com a fotos e nomes dos personagens da série
 
 #### Listar personagens por página
 
-``/characters/page/<page>``
-## Listar Episódios
-``/episodes``
+Rota: ``/characters/page/<page>``
+<br><br>
+### Listar Episódios
+Rota: ``/episodes``
 
 Retorna página apresentando cards com os episódios da série
 
 #### Listar Episódios por Página
-``/episodes/page/<page>``
-
-## Listar Localizações
-``/locations``
+Rota: ``/episodes/page/<page>``
+<br><br>
+### Listar Localizações
+Rota: ``/locations``
 Retorna página apresentando cards com as localizações da série
 
 #### Listar Localizações por Página
-``/locations/page/<page>``
-
-## Perfil do Personagem
-``/character/<id>``
+Rota: ``/locations/page/<page>``
+<br><br>
+### Perfil do Personagem
+Rota: ``/character/<id>``
 
 Retorna página apresentando o perfil do personagem, contendo as informações de nome, espécie, status (vivo ou morto), origem, local de residência e episódios em que aparece.
-
-## Detalhes do Episódio
-``/episode/<id>``
+<br><br>
+### Detalhes do Episódio
+Rota: ``/episode/<id>``
 
 Retorna página apresentando detalhes do episódio, contendo as informações de nome, código, data da exibição e personagens que aparecem nele.
-
-## Detalhes da Localização
-``/location/<id>``
+<br><br>
+### Detalhes da Localização
+Rota: ``/location/<id>``
 
 Retorna página apresentando detalhes da localização, contendo as informações de nome, tipo, dimensão e residentes.
+
+<br><br>
+## 👩🏻‍💻 Autoras
+API criada em Fevereiro de 2024 durante Bootcamp WomakersCode Backend Python + Django
+#### Squad Katherine Johnson
+- Fernanda Pestana
+- Amanda Paul
+- Gleyce Alves
+- Juliana Carvalho
+- Heloísa Santos
+- Carolina Mendes
+- Lais Victoria
+- Jataiza Barboza
+- Maiara Santos
+- Nicolle Sturzbecher
+- Mariama Nascimento 
+
 
 
