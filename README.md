@@ -3,7 +3,12 @@
 
 <br><br>Desenvolvimento de API, utilizando Flask, que faz o consumo da API de terceiros Rick and Morty API, e apresenta para o usuário de forma mais amigável e organizada.
 
+**Repositório:** https://github.com/pestanafj/rick-and-morty-api
+
+**Vídeo de apresentação:** https://youtu.be/HX36jqOJ-Dk
+
 **API de terceiro utilizada:** https://rickandmortyapi.com/api/<br>
+
 Endpoints consultadas: **/character, /location, /episode**
 
 <br><br>
