@@ -43,41 +43,38 @@ Repositório: https://github.com/pestanafj/rick-and-morty-api/
 Também foram realizadas reuniões organizacionais pelo Discord, onde ficou decidido coletivamente as representantes para a apresentação
 <br><br>
 
-### Listar personagens
-Rota: ``/characters``
+### 🙋🏻 Listar personagens
+Rota: ``/characters`` ``/characters?page=<page>``
 
 Retorna página apresentando cards com a fotos e nomes dos personagens da série
 
-#### Listar personagens por página
 
-Rota: ``/characters/page/<page>``
 <br><br>
-### Listar Episódios
-Rota: ``/episodes``
+### 📽️ Listar Episódios
+Rota: ``/episodes`` ``/episodes?page=<page>``
 
 Retorna página apresentando cards com os episódios da série
 
-#### Listar Episódios por Página
-Rota: ``/episodes/page/<page>``
+
 <br><br>
-### Listar Localizações
-Rota: ``/locations``
+### 🌍 Listar Localizações
+Rota: ``/locations`` ``/locations?page=<page>``
+
 Retorna página apresentando cards com as localizações da série
 
-#### Listar Localizações por Página
-Rota: ``/locations/page/<page>``
+
 <br><br>
-### Perfil do Personagem
+### 👨🏻 Perfil do Personagem
 Rota: ``/character/<id>``
 
 Retorna página apresentando o perfil do personagem, contendo as informações de nome, espécie, status (vivo ou morto), origem, local de residência e episódios em que aparece.
 <br><br>
-### Detalhes do Episódio
+### 📽️ Detalhes do Episódio
 Rota: ``/episode/<id>``
 
 Retorna página apresentando detalhes do episódio, contendo as informações de nome, código, data da exibição e personagens que aparecem nele.
 <br><br>
-### Detalhes da Localização
+### 🌍 Detalhes da Localização
 Rota: ``/location/<id>``
 
 Retorna página apresentando detalhes da localização, contendo as informações de nome, tipo, dimensão e residentes.
