@@ -1,7 +1,5 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import urllib.request, json
-
-page = 1
 
 app = Flask(__name__)
 
@@ -9,7 +7,10 @@ app = Flask(__name__)
 # Endpoint para listar personagens
 @app.route("/")
 def root_function():
-    return {"mensagem": "Tudo ok!"}
+    return {
+        "message": "Rick and Morty API is ready!",
+        "url": "http://127.0.0.1:5000/characters",
+    }
 
 
 @app.route("/list")
@@ -25,9 +26,10 @@ def list_json():
 
 
 # Endpoint para exibir lista de personagens
-@app.route("/characters/page/<page>")
-def list_characters_page(page):
+@app.route("/characters")
+def list_characters():
     # Implementação para listar página principal de personagens
+    page = request.args["page"] if len(request.args) > 0 else 1
 
     url = f"https://rickandmortyapi.com/api/character?page={page}"
 
@@ -46,13 +48,6 @@ def list_characters_page(page):
         next_page=next_page,
         previous_page=previous_page,
     )
-
-
-# Endpoint para exibir lista de personagens
-@app.route("/characters")
-def list_characters():
-    # Implementação para listar página principal de personagens
-    return list_characters_page(1)
 
 
 # Endpoint para exibir perfil do personagem
@@ -87,9 +82,11 @@ def character_profile(id):
 
 
 # Endpoint para exibir lista de localizações
-@app.route("/locations/page/<page>")
-def list_locations_page(page):
-    # Implementação para listar próxima página de localizações
+@app.route("/locations")
+def list_locations():
+    # Implementação para listar localizações
+
+    page = request.args["page"] if len(request.args) > 0 else 1
 
     url = f"https://rickandmortyapi.com/api/location?page={page}"
 
@@ -110,13 +107,7 @@ def list_locations_page(page):
     )
 
 
-# Endpoint para exibir lista de localizações
-@app.route("/locations")
-def list_locations():
-    # Implementação para listar localizações
-    return list_locations_page(1)
-
-
+# Endpoint para exibir detalhes da localização
 @app.route("/location/<id>")
 def location_profile(id):
 
@@ -142,9 +133,10 @@ def location_profile(id):
 
 
 # Endpoint para listar episódios
-@app.route("/episodes/page/<page>")
-def list_episodes_page(page):
+@app.route("/episodes")
+def list_episodes():
     # Implementação para listar episódios
+    page = request.args["page"] if len(request.args) > 0 else 1
 
     url = f"https://rickandmortyapi.com/api/episode?page={page}"
 
@@ -163,13 +155,6 @@ def list_episodes_page(page):
         next_page=next_page,
         previous_page=previous_page,
     )
-
-
-# Endpoint para listar episódios
-@app.route("/episodes")
-def list_episodes():
-    # Implementação para listar episódios
-    return list_episodes_page(1)
 
 
 # Endpoint para exibir perfil do episódio

@@ -26,17 +26,23 @@
           {% if page==1 %}
           <a class="page-link disabled" href="#" tabindex="-1"> << </a>
           {% else %}
-          <a class="page-link" href="/locations/page/{{previous_page}}" tabindex="-1"> << </a>
+          <a class="page-link" href="/locations?page={{previous_page}}" tabindex="-1"> << </a>
           {% endif %}
         </li>
         <li class="page-item active">
           <p class="page-link">{{page}}</p>
         </li>
+        <li class="page-item active">
+          <p class="page-link ">of</p>
+        </li>
+        <li class="page-item active">
+          <p class="page-link ">7</p>
+        </li>
         <li class="page-item">
           {% if page==7 %}
           <a class="page-link disabled" href="#"> >> </a>
           {% else %}
-          <a class="page-link" href="/locations/page/{{next_page}}"> >> </a>
+          <a class="page-link" href="/locations?page={{next_page}}"> >> </a>
           {% endif %}
         </li>
       </ul>
